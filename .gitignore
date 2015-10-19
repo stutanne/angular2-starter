@@ -1,0 +1,14 @@
+
+# Project #
+dist
+
+# Node #
+node_modules
+bower_components
+
+# OS generated #
+.DS_Store
+ehthumbs.db
+Icon?
+Thumbs.db
+.idea

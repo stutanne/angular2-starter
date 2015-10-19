@@ -1,0 +1,34 @@
+{
+  "name": "angular2-starter",
+  "version": "1.0.0",
+  "description": "A minimal setup in which to test Angular 2",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stutanne/angular2-starter.git"
+  },
+  "keywords": [
+    "angular2"
+  ],
+  "author": "Stuart Tannehill",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/stutanne/angular2-starter/issues"
+  },
+  "homepage": "https://github.com/stutanne/angular2-starter#readme",
+  "dependencies": {
+    "angular2": "2.0.0-alpha.44",
+    "systemjs": "0.19.2",
+    "es6-shim": "^0.33.6"
+  },
+  "devDependencies": {
+    "connect": "^3.4.0",
+    "del": "^1.2.0",
+    "gulp": "^3.9.0",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-typescript": "^2.8.0",
+    "live-server": "^0.8.1",
+    "open": "0.0.5",
+    "serve-static": "^1.10.0",
+    "typescript": "^1.6.2"
+  }
+}
