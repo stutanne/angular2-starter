@@ -6,6 +6,7 @@ var http = require('http');
 var connect = require('connect');
 var serveStatic = require('serve-static');
 var open = require('open');
+var cache = require('gulp-cached');
 
 var port = 9000;
 var app;
@@ -25,6 +26,7 @@ gulp.task('convert', function () {
         .pipe(ts(tsProject));
 
     return tsResult.js
+        .pipe(cache('converting'))
         .pipe(sourcemaps.write())
         .pipe(gulp.dest('dist'));
 });
