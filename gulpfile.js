@@ -1,19 +1,25 @@
 var gulp = require('gulp');
+var del = require('del');
+var ts = require('gulp-typescript');
+var sourcemaps = require('gulp-sourcemaps');
+var http = require('http');
+var connect = require('connect');
+var serveStatic = require('serve-static');
+var open = require('open');
 
+var port = 9000;
+var app;
 var PATHS = {
     src: 'src/**/*.ts',
     html: 'src/**/*.html'
 };
+var tsProject = ts.createProject('tsconfig.json');
 
 gulp.task('clean', function (done) {
-    var del = require('del');
     del(['dist'], done);
 });
 
 gulp.task('convert', function () {
-    var ts = require('gulp-typescript');
-    var sourcemaps = require('gulp-sourcemaps');
-    var tsProject = ts.createProject('tsconfig.json');
     var tsResult = gulp.src(PATHS.src)
         .pipe(sourcemaps.init())
         .pipe(ts(tsProject));
@@ -29,13 +35,6 @@ gulp.task('copyfiles', ['convert'], function () { // the second argument to task
 });
 
 gulp.task('dev', ['convert', 'copyfiles'], function () {
-    var http = require('http');
-    var connect = require('connect');
-    var serveStatic = require('serve-static');
-    var open = require('open');
-
-    var port = 9000, app;
-
     gulp.watch(PATHS.src, ['convert']);
     gulp.watch(PATHS.html, ['copyfiles']);
 
